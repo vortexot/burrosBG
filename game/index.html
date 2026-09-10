@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta 
+        name="viewport" 
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>BurrosBG</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main id="game">
+
+        <!-- FLASH DE DANO -->
+        <div id="damageFlash"></div>
+
+        <!-- HUD -->
+        <header class="hud">
+
+            <!-- GRUPO PRINCIPAL: VIDA + ARMA -->
+            <div class="hud-primary">
+
+                <!-- VIDA -->
+                <div class="health">
+
+                    <div class="health-title">
+                        <span>VIDA</span>
+                        <span id="healthPercent">100%</span>
+                    </div>
+
+                    <div class="health-bar">
+                        <div id="healthBar"></div>
+                    </div>
+
+                </div>
+
+
+                <!-- ARMA EQUIPADA -->
+                <div class="weapon-hud">
+
+                    <div class="weapon-label">
+                        ARMA EQUIPADA
+                    </div>
+
+                    <div class="weapon-display">
+
+                        <div class="weapon-icon">
+
+                            <img
+                                id="weaponImage"
+                                src=""
+                                alt="Arma"
+                            >
+
+                        </div>
+
+                        <div class="weapon-info">
+
+                            <strong id="weapon">
+                                NORMAL
+                            </strong>
+
+                            <small id="weaponRarity">
+                                NORMAL
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRUPO SECUNDÁRIO: PONTOS + ONDA -->
+            <div class="hud-stats">
+
+                <!-- PONTOS -->
+                <div class="info">
+                    PONTOS
+                    <strong id="score">0</strong>
+                </div>
+
+
+                <!-- ONDA -->
+                <div class="info">
+                    ONDA
+                    <strong id="wave">1</strong>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CANVAS -->
+        <canvas id="arena"></canvas>
+
+
+        <!-- MENU -->
+        <section id="menu" class="overlay">
+
+            <div class="panel">
+
+                <div class="logo">
+                    Burros<span>BG</span>
+                </div>
+
+                <p>
+                    Escolha um lado para começar
+                </p>
+
+                <div class="mode-buttons">
+
+                    <button id="leftMode">
+                        ESQUERDA
+                    </button>
+
+                    <button id="rightMode">
+                        DIREITA
+                    </button>
+
+                </div>
+
+                <small>
+                    Arraste para movimentar
+                    • Toque em ⚡ para atacar
+                </small>
+
+            </div>
+
+        </section>
+
+
+        <!-- GAME OVER -->
+        <section id="gameOver" class="overlay hidden">
+
+            <div class="panel">
+
+                <h1>FIM DE JOGO</h1>
+
+                <p>
+                    Pontuação final
+                </p>
+
+                <strong id="finalScore">
+                    0
+                </strong>
+
+                <button id="restartBtn">
+                    JOGAR NOVAMENTE
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTROLES -->
+        <div id="controls">
+
+            <!-- BOTÃO DESISTIR -->
+            <button id="quitBtn">
+                ✕
+            </button>
+
+
+            <!-- JOYSTICK -->
+            <div id="joystick">
+
+                <div id="stick"></div>
+
+            </div>
+
+
+            <!-- ATAQUE -->
+            <button id="attack">
+                ⚡
+            </button>
+
+        </div>
+
+
+        <!-- MENSAGEM -->
+        <div id="message"></div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
