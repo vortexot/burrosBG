@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Caveat;src:url(fonts/caveat-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:Caveat;src:url(fonts/caveat-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:Kalam;src:url(fonts/kalam-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:Kalam;src:url(fonts/kalam-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:Inter;src:url(fonts/inter-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:Inter;src:url(fonts/inter-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:Inter;src:url(fonts/inter-latin-700-normal.woff2);font-weight:700}
+html,body{margin:0;background:#000}canvas{display:block}
+</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script src="lib.js"></script><script src="chars.js"></script><script src="env.js"></script><script src="shots.js"></script>
+<script>
+window.CTX = document.getElementById('c').getContext('2d');
+(async () => {
+  const fams = ['400 50px Caveat','700 50px Caveat','400 50px Kalam','700 50px Kalam','400 30px Inter','600 30px Inter','700 30px Inter'];
+  await Promise.all(fams.map(f => document.fonts.load(f, 'ÃÉÇãéçõ')));
+  initPost(); buildPaper(); buildFabric();
+  window.frameJPEG = (t, q) => { renderFrame(t); return document.getElementById('c').toDataURL('image/jpeg', q); };
+  // modo de pré-visualização: index.html?t=12.5
+  const q = new URLSearchParams(location.search); if (q.has('t')) renderFrame(+q.get('t'));
+  window.ready = true;
+})();
+</script></body></html>
